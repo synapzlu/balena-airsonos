@@ -1,0 +1,7 @@
+version: '2.1'
+
+services:
+  airsonos:
+    build:
+        context: ./
+    network_mode: host

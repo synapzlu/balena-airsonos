@@ -1,0 +1,14 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%:latest
+
+RUN install_packages wget
+WORKDIR /airconnect
+
+RUN wget https://github.com/philippe44/AirConnect/raw/master/bin/airupnp-aarch64
+#RUN wget https://github.com/philippe44/AirConnect/raw/master/bin/airupnp-arm
+#RUN wget https://github.com/philippe44/AirConnect/raw/master/bin/airupnp-arm5
+
+RUN chmod +x airupnp*
+
+COPY scripts/. .
+
+CMD /bin/bash start.sh
